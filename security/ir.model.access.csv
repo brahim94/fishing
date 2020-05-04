@@ -1,2 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_fishing_fishing,fishing.fishing,model_fishing_fishing,base.group_user,1,1,1,1
+access_fishing_fishing,fishing.fishing,model_fishing_fishing,,1,0,0,0
+access_fishing_list_user,fishing.list.user,model_fishing_list,base.group_user,1,0,0,0
+access_fishing_list_admin,fishing.list.admin,model_fishing_list,base.group_system,1,1,1,1

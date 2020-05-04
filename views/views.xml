@@ -2,17 +2,18 @@
 <odoo>
 
 <!-- Data records go here -->
-    <record id="fleet_view_form" model="ir.ui.view">
+    <record id="fishing_view_form" model="ir.ui.view">
         <field name="name">Fishing Form</field>
         <field name="model">fishing.list</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                  <group col="2">
-                    <group string="Générale">
-                        <field name="name" />
-                        <field name="Number"/>
-                        <field name="description" />  
+                    <group col="2">
+                        <group string="Générale">
+                            <field name="name" />
+                            <field name="number"/>
+                            <field name="description" />  
+                        </group>
                     </group>
                   </sheet>
               </form>
@@ -25,7 +26,7 @@
         <field name="arch" type="xml">
             <tree>
             <field name="name"/>
-            <field name="Number"/>
+            <field name="number"/>
             <field name="description"/>
             </tree>
         </field>
@@ -33,14 +34,18 @@
 
 
     <record model="ir.actions.act_window" id="fishing_list_action">
-    <field name="name">Fishing</field>
-    <field name="res_model">fishing.list</field>
-    <field name="view_type">form</field>
-    <field name="view_mode">tree,form</field>
-    <field name="help" type="html">
-            <p class="oe_view_nocontent_smiling_face"> créer votre première liste fishing
-                </p>
-            </field>
-        </record>"
+        <field name="name">Fishing</field>
+        <field name="res_model">fishing.list</field>
+        <!--field name="view_type">form</field-->
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+                <p class="oe_view_nocontent_smiling_face"> créer votre première liste fishing</p>
+        </field>
+    </record>
 
-<menuitem name="Fishing" id="menu_root" sequence="115" groups="base.group_user" web_icon="flotte,static/description/fishing.png"/>
+
+<menuitem name="Fishing" id="menu_root" sequence="115" groups="base.group_user" web_icon="fishing,static/description/fishing.png"/>
+<menuitem name="Fishing"  parent="menu_root" id="fishing_list_menu" sequence="100" groups ="base.group_user"/>
+<menuitem action="fishing_list_action" parent="fishing_list_menu" id="fishing_list_menu_item" sequence="2"/>
+
+</odoo>
